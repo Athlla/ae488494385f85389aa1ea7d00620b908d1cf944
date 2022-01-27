@@ -1,4 +1,5 @@
 import Dates from 'components/Dates/Dates';
+import useScroll from 'hooks/useScroll';
 
 import styles from './Header.module.scss';
 
@@ -9,6 +10,8 @@ interface Props {
 }
 
 const Header = ({ openModal, setTab, tab }: Props) => {
+  const show = useScroll();
+
   return (
     <header className={styles.Header}>
       <div className={styles.Row}>
@@ -24,20 +27,24 @@ const Header = ({ openModal, setTab, tab }: Props) => {
         </div>
       </div>
       <Dates />
-      <div className={styles.Tab}>
-        <span
-          className={`${styles.Item} ${tab === 'Lunch' ? styles.Active : ''}`}
-          onClick={() => setTab('Lunch')}
-        >
-          Lunch
-        </span>
-        <span
-          className={`${styles.Item} ${tab === 'Dinner' ? styles.Active : ''}`}
-          onClick={() => setTab('Dinner')}
-        >
-          Dinner
-        </span>
-      </div>
+      {show && (
+        <div className={styles.Tab}>
+          <span
+            className={`${styles.Item} ${tab === 'Lunch' ? styles.Active : ''}`}
+            onClick={() => setTab('Lunch')}
+          >
+            Lunch
+          </span>
+          <span
+            className={`${styles.Item} ${
+              tab === 'Dinner' ? styles.Active : ''
+            }`}
+            onClick={() => setTab('Dinner')}
+          >
+            Dinner
+          </span>
+        </div>
+      )}
     </header>
   );
 };
