@@ -5,10 +5,20 @@ import { CartContext } from 'context/cart';
 import { IProduct } from 'interfaces/IProduct';
 import styles from './Item.module.scss';
 
-const Item = ({ img_url, rating, name, price, restaurant }: IProduct) => {
-  const { add2Cart } = useContext(CartContext);
+const Item = ({ id, img_url, rating, name, price, restaurant }: IProduct) => {
+  const { add2Cart, cart } = useContext(CartContext);
 
-  const onClickHandler = () => {};
+  const onClickHandler = () => {
+    const itemData: IProduct = {
+      id,
+      name,
+      img_url,
+      price,
+      rating,
+      restaurant,
+    };
+    add2Cart(itemData);
+  };
 
   return (
     <div className={styles.Item}>
@@ -36,9 +46,19 @@ const Item = ({ img_url, rating, name, price, restaurant }: IProduct) => {
               currency: 'IDR',
             }).format(price)}
           </h4>
-          <button className={styles.Button} onClick={onClickHandler}>
-            <span>ADD</span>
-            <span className="material-icons">add</span>
+          <button
+            className={styles.Button}
+            disabled={cart.find((item) => item.id === id) ? true : false}
+            onClick={onClickHandler}
+          >
+            {cart.find((item) => item.id === id) ? (
+              <span className="material-icons">done</span>
+            ) : (
+              <>
+                <span>ADD</span>
+                <span className="material-icons">add</span>
+              </>
+            )}
           </button>
         </div>
       </div>

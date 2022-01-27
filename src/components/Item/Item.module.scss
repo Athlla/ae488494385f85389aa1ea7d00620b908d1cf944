@@ -71,6 +71,10 @@
             font-size: 1rem;
           }
         }
+
+        &:disabled {
+          background: rgba($color: $red, $alpha: 0.5);
+        }
       }
     }
   }

@@ -1,6 +1,7 @@
 import CartOverlay from 'components/Cart/CartOverlay';
 import Header from 'components/Header/Header';
 import Item from 'components/Item/Item';
+
 import { IProduct } from 'interfaces/IProduct';
 
 import styles from 'styles/Home.module.scss';
