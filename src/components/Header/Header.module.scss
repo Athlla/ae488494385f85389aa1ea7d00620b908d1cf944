@@ -1,0 +1,41 @@
+@use 'styles/colors' as *;
+
+.Header {
+  width: 90%;
+  max-width: 500px;
+  margin: auto;
+  padding: 16px 0;
+  color: $semi-black;
+
+  .Row {
+    display: flex;
+    align-items: center;
+
+    .Location {
+      display: flex;
+      flex-direction: column;
+      margin-left: 1.5rem;
+
+      p {
+        font-size: 0.75rem;
+        color: $gray;
+      }
+
+      span {
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+
+        .ArrowDownIcon {
+          color: $red;
+          font-size: 2rem;
+        }
+      }
+    }
+
+    .Back {
+      font-size: 2rem;
+      cursor: pointer;
+    }
+  }
+}

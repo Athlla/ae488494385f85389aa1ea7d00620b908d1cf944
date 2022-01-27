@@ -1,8 +1,13 @@
+import Header from 'components/Header/Header';
+
+import styles from 'styles/Home.module.scss';
+
 const App = () => {
   return (
-    <div>
-      <h1>Hello World!</h1>
-    </div>
+    <>
+      <Header />
+      <main className={styles.Container}></main>
+    </>
   );
 };
 

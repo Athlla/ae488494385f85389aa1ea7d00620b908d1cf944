@@ -1,0 +1,8 @@
+@use 'colors' as *;
+
+.Container {
+  width: 90%;
+  max-width: 500px;
+  margin: auto;
+  color: $semi-black;
+}
