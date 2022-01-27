@@ -17,8 +17,6 @@ const Dates = () => {
       now.setDate(now.getDate() + 1);
     }
 
-    console.log(dates);
-
     return dates;
   };
 
