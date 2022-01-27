@@ -1,9 +1,11 @@
+import CartOverlay from 'components/Cart/CartOverlay';
 import Header from 'components/Header/Header';
 import Item from 'components/Item/Item';
+import { IProduct } from 'interfaces/IProduct';
 
 import styles from 'styles/Home.module.scss';
 
-const ITEM_DATA = [
+const ITEM_DATA: IProduct[] = [
   {
     id: 1,
     name: 'Dori Asam Manis dan Capcay Goreng',
@@ -69,6 +71,7 @@ const App = () => {
             <Item key={item.id} {...item} />
           ))}
         </div>
+        <CartOverlay />
       </main>
     </>
   );

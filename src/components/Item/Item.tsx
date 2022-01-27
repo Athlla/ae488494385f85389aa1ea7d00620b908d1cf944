@@ -1,26 +1,28 @@
+import { useContext } from 'react';
+
+import { CartContext } from 'context/cart';
+
+import { IProduct } from 'interfaces/IProduct';
 import styles from './Item.module.scss';
 
-interface Props {
-  id: number;
-  name: string;
-  price: number;
-  restaurant: string;
-  rating: number;
-  img_url: string;
-}
+const Item = ({ img_url, rating, name, price, restaurant }: IProduct) => {
+  const { add2Cart } = useContext(CartContext);
 
-const Item = ({ id, img_url, rating, name, price, restaurant }: Props) => {
+  const onClickHandler = () => {};
+
   return (
     <div className={styles.Item}>
       <img className={styles.Image} src={img_url} loading="lazy" alt={name} />
       <div className={styles.Detail}>
         <div className={styles.Rating}>
           <p>{rating}</p>
-          <span className={`material-icons ${styles.Star}`}>star</span>
-          <span className={`material-icons ${styles.Star}`}>star</span>
-          <span className={`material-icons ${styles.Star}`}>star</span>
-          <span className={`material-icons ${styles.Star}`}>star</span>
-          <span className={`material-icons ${styles.Star}`}>star_half</span>
+          <span className={`material-icons-round ${styles.Star}`}>star</span>
+          <span className={`material-icons-round ${styles.Star}`}>star</span>
+          <span className={`material-icons-round ${styles.Star}`}>star</span>
+          <span className={`material-icons-round ${styles.Star}`}>star</span>
+          <span className={`material-icons-round ${styles.Star}`}>
+            star_half
+          </span>
         </div>
         <h4>{name}</h4>
         <div className={styles.Other}>
@@ -34,7 +36,7 @@ const Item = ({ id, img_url, rating, name, price, restaurant }: Props) => {
               currency: 'IDR',
             }).format(price)}
           </h4>
-          <button className={styles.Button}>
+          <button className={styles.Button} onClick={onClickHandler}>
             <span>ADD</span>
             <span className="material-icons">add</span>
           </button>

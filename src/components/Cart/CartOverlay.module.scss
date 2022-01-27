@@ -1,0 +1,38 @@
+@use 'styles/colors' as *;
+
+.Wrapper {
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 500px;
+  padding-bottom: 20px;
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0), #ffffff);
+
+  .CartOverlay {
+    width: 87.5%;
+    background: $maroon;
+    margin: auto;
+    color: white;
+    padding: 8px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .Col {
+      p {
+        font-size: 0.75rem;
+        color: $light-gray;
+        font-weight: 300;
+
+        &:first-of-type {
+          font-size: 1rem;
+          font-weight: 600;
+        }
+      }
+    }
+  }
+}
