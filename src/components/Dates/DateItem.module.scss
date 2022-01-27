@@ -24,7 +24,6 @@
   }
 
   &.Active,
-  &:hover,
   &:first-of-type {
     background: $semi-black;
     color: white;
@@ -36,6 +35,9 @@
 
   &.Disabled {
     cursor: not-allowed;
-    color: $gray;
+
+    p {
+      color: $light-gray;
+    }
   }
 }

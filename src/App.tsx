@@ -57,6 +57,7 @@ const ITEM_DATA: IProduct[] = [
 ];
 
 const App = () => {
+  const [tab, setTab] = useState<'Lunch' | 'Dinner'>('Lunch');
   const [showModal, setShowModal] = useState<boolean>(false);
 
   const currDate = new Date().toLocaleDateString('id-ID', {
@@ -68,7 +69,7 @@ const App = () => {
 
   return (
     <>
-      <Header showModal={showModal} openModal={() => setShowModal(true)} />
+      <Header openModal={() => setShowModal(true)} tab={tab} setTab={setTab} />
       <main className={styles.Container}>
         <p className={styles.CurrDate}>{currDate}</p>
         <div className={styles.Items}>

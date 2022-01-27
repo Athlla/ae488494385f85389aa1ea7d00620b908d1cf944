@@ -6,6 +6,11 @@
   margin: auto;
   padding: 16px 0;
   color: $semi-black;
+  position: fixed;
+  top: 0;
+  background: white;
+  left: 50%;
+  transform: translateX(-50%);
 
   .Row {
     display: flex;
@@ -36,6 +41,32 @@
     .Back {
       font-size: 2rem;
       cursor: pointer;
+    }
+  }
+
+  .Tab {
+    margin-top: 16px;
+    display: flex;
+    align-items: center;
+    height: 40px;
+    border: 2px solid $light-gray;
+    border-radius: 8px;
+    overflow: hidden;
+
+    .Item {
+      flex: 1;
+      text-align: center;
+      background: white;
+      color: $gray;
+      font-weight: 500;
+      height: 100%;
+      line-height: 40px;
+      cursor: pointer;
+
+      &.Active {
+        color: white;
+        background: $semi-black;
+      }
     }
   }
 }

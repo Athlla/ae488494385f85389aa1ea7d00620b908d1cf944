@@ -7,7 +7,11 @@ interface Props {
 
 const DateItem = ({ date, weekday }: Props) => {
   return (
-    <div className={styles.DateItem}>
+    <div
+      className={`${styles.DateItem} ${
+        weekday === 'Sab' || weekday === 'Min' ? styles.Disabled : ''
+      }`}
+    >
       <p className={styles.WeekDay}>{weekday}</p>
       <p className={styles.Date}>{date}</p>
     </div>

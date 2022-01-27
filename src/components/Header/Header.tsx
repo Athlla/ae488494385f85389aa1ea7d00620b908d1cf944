@@ -3,11 +3,12 @@ import Dates from 'components/Dates/Dates';
 import styles from './Header.module.scss';
 
 interface Props {
-  showModal: boolean;
   openModal: () => void;
+  tab: 'Lunch' | 'Dinner';
+  setTab: (value: 'Lunch' | 'Dinner') => void;
 }
 
-const Header = ({ openModal, showModal }: Props) => {
+const Header = ({ openModal, setTab, tab }: Props) => {
   return (
     <header className={styles.Header}>
       <div className={styles.Row}>
@@ -23,6 +24,20 @@ const Header = ({ openModal, showModal }: Props) => {
         </div>
       </div>
       <Dates />
+      <div className={styles.Tab}>
+        <span
+          className={`${styles.Item} ${tab === 'Lunch' ? styles.Active : ''}`}
+          onClick={() => setTab('Lunch')}
+        >
+          Lunch
+        </span>
+        <span
+          className={`${styles.Item} ${tab === 'Dinner' ? styles.Active : ''}`}
+          onClick={() => setTab('Dinner')}
+        >
+          Dinner
+        </span>
+      </div>
     </header>
   );
 };
