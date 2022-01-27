@@ -1,0 +1,26 @@
+@use 'styles/colors' as *;
+
+.Search {
+  width: 100%;
+  border: 1px solid $light-gray;
+  display: flex;
+  padding: 8px 0;
+  margin: 1rem 0;
+
+  span {
+    color: $red;
+    margin: 0 1rem;
+  }
+
+  input {
+    width: 100%;
+    border: none;
+    font-size: 1rem;
+    font-family: inherit;
+    padding-right: 20px;
+
+    &:focus {
+      outline: none;
+    }
+  }
+}

@@ -1,10 +1,12 @@
 import CartOverlay from 'components/Cart/CartOverlay';
 import Header from 'components/Header/Header';
+import Modal from 'components/Modal/Modal';
 import Item from 'components/Item/Item';
 
 import { IProduct } from 'interfaces/IProduct';
 
 import styles from 'styles/Home.module.scss';
+import { useState } from 'react';
 
 const ITEM_DATA: IProduct[] = [
   {
@@ -55,6 +57,8 @@ const ITEM_DATA: IProduct[] = [
 ];
 
 const App = () => {
+  const [showModal, setShowModal] = useState<boolean>(false);
+
   const currDate = new Date().toLocaleDateString('id-ID', {
     weekday: 'long',
     day: '2-digit',
@@ -64,7 +68,7 @@ const App = () => {
 
   return (
     <>
-      <Header />
+      <Header showModal={showModal} openModal={() => setShowModal(true)} />
       <main className={styles.Container}>
         <p className={styles.CurrDate}>{currDate}</p>
         <div className={styles.Items}>
@@ -73,6 +77,7 @@ const App = () => {
           ))}
         </div>
         <CartOverlay />
+        <Modal showModal={showModal} closeModal={() => setShowModal(false)} />
       </main>
     </>
   );
